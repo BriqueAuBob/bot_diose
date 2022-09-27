@@ -8,8 +8,10 @@ module.exports = async (client) => {
    setInterval( async () => {
       const date = new Date()
       if(date.getHours() >= 10 && date.getHours() <= 18) {
+         if(guild.bannerURL()===links[0]) return
          await guild.setBanner(links[0])
       } else {
+         if(guild.bannerURL()===links[1]) return
          await guild.setBanner(links[1])
       }
    }, 13000)
