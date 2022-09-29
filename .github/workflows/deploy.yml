@@ -1,0 +1,60 @@
+name: Deployment to server
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: rjstone/discord-webhook-notify@v1
+        with:
+          severity: info
+          details: Deployment started...
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: |
+          cd ..
+          rm -rf bot_umaestro_new
+          cp -r bot_umaestro bot_umaestro_new
+          cd bot_umaestro_new
+          git checkout main
+          git reset --hard origin/main
+          git pull
+          npm rebuild
+          npm install
+
+          cp /home/debian/bot_umaestro/.env .env
+
+          # Replace current version with the new one
+
+          cd ../
+          mv bot_umaestro bot_umaestro_old
+          mv bot_umaestro_new bot_umaestro
+
+          # Restart server
+
+          cd bot_umaestro
+          pm2 delete bot_umaestro
+          pm2 start index.js --name bot_umaestro
+          rm -rf ../bot_umaestro_old
+      - uses: rjstone/discord-webhook-notify@v1
+        if: success()
+        with:
+          severity: info
+          details: Nouvelle version déployée avec succès
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - uses: rjstone/discord-webhook-notify@v1
+        if: failure()
+        with:
+          severity: error
+          details: Something went wrong...
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - uses: rjstone/discord-webhook-notify@v1
+        if: cancelled()
+        with:
+          severity: warn
+          details: Deploy cancelled...
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
