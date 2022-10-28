@@ -3,6 +3,7 @@ const { Modal, TextInputComponent, MessageActionRow, MessageEmbed } = require("d
 module.exports = async (client, interaction) => {
     if (interaction.isButton()) {
         if (interaction.customId.startsWith("NOTIF")) {
+            const meta = interaction.guild.roles.cache.get("1035277883624673320")
             const site = interaction.guild.roles.cache.get("996965834952032356")
             const multid = interaction.guild.roles.cache.get("996965922558443613")
             const union = interaction.guild.roles.cache.get("996966022349332562")
@@ -30,6 +31,15 @@ module.exports = async (client, interaction) => {
                     await interaction.member.roles.add(union.id)
                     await interaction.reply({ content: `Le rôle ${union} vous à été ajouté avec succès`, ephemeral: true })
                 }
+            } else if (interaction.customId === "NOTIF_META") {
+                if (interaction.member.roles.cache.has(meta.id)) {
+                    await interaction.member.roles.remove(meta.id)
+                    await interaction.reply({ content: `Le rôle ${meta} vous à été retiré avec succès`, ephemeral: true })
+                } else {
+                    await interaction.member.roles.add(meta.id)
+                    await interaction.reply({ content: `Le rôle ${meta} vous à été ajouté avec succès`, ephemeral: true })
+                }
+
             }
         } else if (interaction.customId.startsWith("NOUS_CONTACTER")) {
             const row = new MessageActionRow()
