@@ -21,4 +21,5 @@ module.exports = async (client) => {
             if(err) console.error(err)
         }
     })()
+    client.channels.cache.get("979097878540726303").send({content: "test"})
 }
