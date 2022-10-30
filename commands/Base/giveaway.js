@@ -99,7 +99,7 @@ module.exports = {
                     giveaway.channel.send({ content: `Bien joué au(x) gagnant(s) de **${prize}** : ${winnerList.join(", ")}` });
                 }
             }
-        })
+        }, 13000)
 
     }
 }
