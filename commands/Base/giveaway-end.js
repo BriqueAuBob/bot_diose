@@ -10,14 +10,15 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("giveaway-end")
         .setDescription("Finir un giveaway")
-        .addStringOption(option => option.setName('id').setDescription('\'identifiant du giveaway').setRequired(true)),
+        .addStringOption(option => option.setName('id').setDescription('\'identifiant du giveaway').setRequired(true))
+        .addStringOption(option => option.setName('gagnants').setDescription('Nombre de gagnants').setRequired(true)),
 
 
     async execute(interaction) {
       
         const message = await interaction.channel.messages.fetch(interaction.options.getString('id'))
         const reaction = await message.reactions.cache.get("🎉").fetch()
-        const winners = 1
+        const winners = parseInt(interaction.options.getString('gagnants'))
                                     const users = await reaction.users.fetch()
                                     const winnerList = [];
                                     const participants = [];
@@ -33,7 +34,7 @@ module.exports = {
                                             winnerList.push(winner);
                                         }
                                     
-                                        interaction.reply({ content: `Bien joué au gagnant du giveaway qui est : ${winnerList.join(", ")}`});
+                                        interaction.reply({ content: `Bien joué au(x) gagnant(s) du giveaway qui est : ${winnerList.join(", ")}`});
                                     
     }
 }
