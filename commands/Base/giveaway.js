@@ -38,7 +38,7 @@ module.exports = {
         const date = new Date(Date.now()+time*1000)
         const giveawayEmbed = new MessageEmbed()
             .setColor("DARK_BUT_NOT_BLACK")
-            .setDescription(`Prix: **${prize}**\nAuteur: ${interaction.member}\nFin: <t:${date.getTime()/1000}:R>\nGagnants: **${winners}**`)
+            .setDescription(`Prix: **${prize}**\nAuteur: ${interaction.member}\nFin: <t:${Math.floor(date.getTime()/1000)}:R>\nGagnants: **${winners}**`)
         const giveaway = await channel.send({ embeds: [giveawayEmbed], content: "🎉 **GIVEAWAY** 🎉" });
         giveaway.react("🎉")
         
