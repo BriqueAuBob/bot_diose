@@ -1,7 +1,7 @@
 require("dotenv").config()
 const { REST } = require("@discordjs/rest")
 const { Routes } = require("discord-api-types/v9")
-const { slashCommands } = require("../../functions/loader")
+const { slashCommands } = require("../../util/loader")
 module.exports = async (client) => {
     const rest = new REST({
         version: "9"
