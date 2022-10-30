@@ -10,7 +10,7 @@ module.exports = async (client) => {
     (async () => {
         try {
 
-            await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), {
+            await rest.put(Routes.applicationGuildCommands("995327553143312474", "977507903307145216"), {
                 body: slashCommands
             })
             console.log(`(/) commands are operational`)
