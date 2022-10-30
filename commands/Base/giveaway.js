@@ -11,10 +11,10 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("giveaway")
         .setDescription("Faire un giveaway")
-        .addChannelOption(option => option.setName('salon').setDescription('Salon ou le message va être envoyé'))
         .addStringOption(option => option.setName('durée').setDescription('La durée ex: 2d (2 jour)').setRequired(true))
         .addStringOption(option => option.setName('prix').setDescription('Le prix à gagner').setRequired(true))
-        .addStringOption(option => option.setName('gagnants').setDescription('Le nombre de gagnants').setRequired(true)),
+        .addStringOption(option => option.setName('gagnants').setDescription('Le nombre de gagnants').setRequired(true))
+        .addChannelOption(option => option.setName('salon').setDescription('Salon ou le message va être envoyé')),
 
 
     async execute(interaction) {
