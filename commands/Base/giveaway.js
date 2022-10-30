@@ -71,7 +71,7 @@ module.exports = {
         const interval = setInterval(async function () {
             if ((time - 13) > 0) {
                 time = time - 13;
-                giveawayEmbed.setDescription(`Prix: **${prize}**\nAuteur: ${message.member}\nTemps restant ${getTimeRemaining(time)}\nGagnants: **${winners}**`);
+                giveawayEmbed.setDescription(`Prix: **${prize}**\nAuteur: ${interaction.member}\nTemps restant ${getTimeRemaining(time)}\nGagnants: **${winners}**`);
                 giveaway.edit({ embeds: [giveawayEmbed], content: "🎉 **GIVEAWAY** 🎉" });
             } else {
                 clearInterval(interval);
