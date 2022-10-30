@@ -16,7 +16,7 @@ module.exports = {
     async execute(interaction) {
       
         const message = await interaction.channel.messages.fetch(interaction.options.getString('id'))
-        const reaction = await giveaway.reactions.cache.get("🎉").fetch()
+        const reaction = await message.reactions.cache.get("🎉").fetch()
         const winners = 1
                                     const users = await reaction.users.fetch()
                                     const winnerList = [];
