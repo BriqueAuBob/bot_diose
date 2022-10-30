@@ -66,6 +66,7 @@ module.exports = {
             .setColor("DARK_BUT_NOT_BLACK")
             .setDescription(`Prix: **${prize}**\nAuteur: ${interaction.member}\nTemps restant ${getTimeRemaining(time)}\nGagnants: **${winners}**`)
         const giveaway = await channel.send({ embeds: [giveawayEmbed], content: "🎉 **GIVEAWAY** 🎉" });
+        await interaction.reply({content: "Giveaway lancé !", ephemeral: true})
         giveaway.react("🎉")
         const interval = setInterval(async function () {
             if ((time - 13) > 0) {
