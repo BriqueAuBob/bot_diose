@@ -1,0 +1,43 @@
+{
+  "logs": {
+    "webhook_base_uri": "https://discord.com/api/webhooks/",
+    "webhooks": {
+      "guildMemberAdd": {
+        "id": "1041380061548392609",
+        "token": "4E7q_EM1ordej6l0dfYeM-EXdumk9YpLkru8k-e4ztLzs1b77IbbI72L4UUO0dFj4g7V",
+        "title": "😄 Nouveau membre",
+        "description": "{0} (`{1}`) vient de rejoindre le serveur !"
+      },
+      "guildMemberRemove": {
+        "id": "1041390686517329940",
+        "token": "tIMBV92uKJf4neXFr3UfaiLwmqY4f_rTx3NzJCF9cMX9XAotG9tGH2S-yrVQIJAV6nNV",
+        "title": "🥲 Il est parti...",
+        "description": "{0} (`{1}`) vient de quitter le serveur..."
+      },
+      "messageUpdate": {
+        "id": "1041436762431553556",
+        "token": "47_g_wKk6S1ZVSkJ8t_pXGe_rAdVV4frjr1EaOvB7wt8-jQCdR047b2vm9WJ1KzyqoDg",
+        "title": "✏️ Message modifié",
+        "description": "{0} (`{1}`) a édité son message.\n\nAncien contenu: \n`{2}`\nNouveau contenu: \n`{3}`"
+      },
+      "messageDelete": {
+        "id": "1041381031875444797",
+        "token": "oHiTieaaIbl3zFLLMQZ6133Wze3856fYD6eu1SzyCMMibQ78MSeJdO4LnKeL3URsVmrE",
+        "title": "🚮 Message supprimé",
+        "description": "{0} (`{1}`) a supprimé son message.\n\nContenu: \n`{2}`"
+      },
+      "voiceChannelJoin": {
+        "id": "1041440174405595299",
+        "token": "Q4sIV6iLwYKnSjpjODWuuTxJkyqLlQaVLBC358j8csiC1I_muXDsu5UTqqvjQCR3jbNB",
+        "title": "🎤 Un membre a rejoins un salon vocal",
+        "description": "{0} (`{1}`) a rejoins le salon {2} (`{3}`)"
+      },
+      "voiceChannelLeave": {
+        "id": "1041440817413373992",
+        "token": "JxCeefJb4WTdyeFHea8V_4KmgYEMPKbQ-J0DEW_Sa42Vd3J0ObmrtPhSyBSATc_f9pfn",
+        "title": "❌ Un membre a quitté un salon vocal",
+        "description": "{0} (`{1}`) a quitté le salon {2} (`{3}`)"
+      }
+    }
+  }
+}
