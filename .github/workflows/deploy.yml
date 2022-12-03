@@ -37,6 +37,7 @@ jobs:
           # Restart server
 
           cd bot_umaestro
+          npm run build
           pm2 delete bot_umaestro
           pm2 start npm --name bot_umaestro -- start
           rm -rf ../bot_umaestro_old
