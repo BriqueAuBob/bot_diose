@@ -21,6 +21,10 @@ export default class extends Event {
         oldState.channel,
         oldState.channel?.name
       );
+      if (oldState.channel?.parent?.id !== "1048733213138354206") return;
+      if (oldState.channel?.members.size === 0) {
+        oldState.channel.delete();
+      }
     } else {
       createLogMessage(
         "voiceChannelJoin",

@@ -1,5 +1,5 @@
 {
-  "name": "._1",
+  "name": "bot_umaestro",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -9,8 +9,12 @@
     "dev": "tsnd --respawn --transpile-only --cls ./src/index.ts"
   },
   "dependencies": {
-    "discord.js": "^14.0.0",
+    "@types/node-cron": "^3.0.6",
+    "canvas": "^2.10.2",
+    "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
+    "mongoose": "^6.7.2",
+    "node-cron": "^3.0.2",
     "sheweny": "^4.0.0"
   },
   "devDependencies": {

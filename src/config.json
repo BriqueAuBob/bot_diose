@@ -37,7 +37,26 @@
         "token": "JxCeefJb4WTdyeFHea8V_4KmgYEMPKbQ-J0DEW_Sa42Vd3J0ObmrtPhSyBSATc_f9pfn",
         "title": "❌ Un membre a quitté un salon vocal",
         "description": "{0} (`{1}`) a quitté le salon {2} (`{3}`)"
+      },
+      "botReceiveDM": {
+        "id": "1046483714475040939",
+        "token": "-nlXX9OvEg2_fMUCjyBBnqNyA6dYcU4UktLCSz-gJT7f-6KU1E_hm66U45hGFYsuiqov",
+        "title": "📨 Message privé reçu",
+        "description": "{0} (`{1}`) m'a envoyé un message privé.\n\nContenu: \n`{2}`"
       }
     }
+  },
+
+  "notifs": {
+    "NOTIF_SITE": "996965834952032356",
+    "NOTIF_MULTID": "996965922558443613",
+    "NOTIF_META": "1035277883624673320"
+  },
+
+  "ranks": {
+    "5": "995331593604452433",
+    "10": "985505372922085467",
+    "20": "985505302793306142",
+    "35": "1001218568358219786"
   }
 }

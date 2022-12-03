@@ -1,11 +1,11 @@
 import { logs } from "../config.json";
-import { WebhookClient, GuildMember, EmbedBuilder } from "discord.js";
+import { WebhookClient, User, GuildMember, EmbedBuilder } from "discord.js";
 import { WebhookConfig, WebhooksConfig } from "../contracts/WebhookConfig";
 import format from "./format";
 
 export default function (
   eventName: string,
-  member: GuildMember,
+  member: User | GuildMember,
   ...args: any[]
 ) {
   const eventConfig: WebhookConfig | undefined =
