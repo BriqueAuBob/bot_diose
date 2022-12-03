@@ -14,10 +14,12 @@
     "outDir": "./dist",
     "removeComments": false,
     "sourceMap": false,
-    "strict": false,
+    "strict": true,
     "target": "ES2021",
     "skipLibCheck": false,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "ignoreBuildErrors": true,
+    "ignoreCompilerErrors": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "cli-config.ts"]
