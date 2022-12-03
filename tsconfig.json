@@ -7,7 +7,8 @@
     "experimentalDecorators": true,
     "module": "CommonJS",
     "moduleResolution": "Node",
-    "noEmitOnError": true,
+    "noEmit": false,
+    "noEmitOnError": false,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
@@ -17,9 +18,7 @@
     "strict": true,
     "target": "ES2021",
     "skipLibCheck": false,
-    "resolveJsonModule": true,
-    "ignoreBuildErrors": true,
-    "ignoreCompilerErrors": true
+    "resolveJsonModule": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "cli-config.ts"]
