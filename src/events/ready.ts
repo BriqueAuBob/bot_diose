@@ -1,12 +1,5 @@
 import { Event } from "sheweny";
 import type { ShewenyClient } from "sheweny";
-import type { TextChannel } from "discord.js";
-import {
-  EmbedBuilder,
-  ActionRowBuilder,
-  ButtonBuilder,
-  ButtonStyle,
-} from "discord.js";
 import cron from "node-cron";
 
 export class ReadyEvent extends Event {
