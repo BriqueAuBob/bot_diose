@@ -14,6 +14,7 @@ export default class extends Event {
   execute(oldMessage: Message, newMessage: Message) {
     const member = oldMessage.member;
     if (!member) return;
+    if (member.user.bot) return;
     createLogMessage(this.name, member, oldMessage.content, newMessage.content);
   }
 }
