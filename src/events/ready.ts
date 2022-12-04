@@ -1,6 +1,8 @@
 import { Event } from "sheweny";
 import type { ShewenyClient } from "sheweny";
 import cron from "node-cron";
+import { ranks } from "../config.json";
+import { ActivityType } from "discord.js";
 
 export class ReadyEvent extends Event {
   constructor(client: ShewenyClient) {
@@ -13,6 +15,14 @@ export class ReadyEvent extends Event {
 
   async execute() {
     console.log(`${this.client.user!.tag} is logged in`);
+
+    const guild = await this.client.guilds.fetch("1041358976513753098");
+    this.client.user?.setActivity(
+      (await guild.members.fetch()).size + " membres",
+      {
+        type: ActivityType.Watching,
+      }
+    );
 
     // const links = [
     //   "https://media.discordapp.net/attachments/841201837021200394/1003450539884949605/test-banner-day0048.png?width=1191&height=670",

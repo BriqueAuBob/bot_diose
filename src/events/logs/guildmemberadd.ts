@@ -1,6 +1,6 @@
 import { Event } from "sheweny";
 import type { ShewenyClient } from "sheweny";
-import type { GuildMember, GuildTextBasedChannel } from "discord.js";
+import { ActivityType, GuildMember, GuildTextBasedChannel } from "discord.js";
 import createLogMessage from "../../functions/createlogmessage";
 
 export default class extends Event {
@@ -11,7 +11,7 @@ export default class extends Event {
     });
   }
 
-  execute(member: GuildMember) {
+  async execute(member: GuildMember) {
     if (member.guild.id === "977507903307145216") {
       member.roles.add("985505448398577674");
     }
@@ -25,5 +25,17 @@ export default class extends Event {
     channel.send({
       content: `Hop hop hop! On souhaite tous la bienvenue à ${member} sur le serveur!`,
     });
+
+    try {
+      const guild = await this.client.guilds.fetch("1041358976513753098");
+      this.client.user?.setActivity(
+        (await guild.members.fetch()).size + " membres",
+        {
+          type: ActivityType.Watching,
+        }
+      );
+    } catch {
+      console.log("Error while fetching guild");
+    }
   }
 }

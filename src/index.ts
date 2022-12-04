@@ -30,14 +30,6 @@ mongoose
         Partials.Reaction,
         Partials.Channel,
       ],
-      presence: {
-        status: "online",
-        activities: [
-          {
-            name: 'Use "help" command',
-          },
-        ],
-      },
       managers: {
         commands: {
           directory: "./commands",
