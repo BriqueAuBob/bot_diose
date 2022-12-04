@@ -16,7 +16,7 @@ export class ReadyEvent extends Event {
   async execute() {
     console.log(`${this.client.user!.tag} is logged in`);
 
-    const guild = await this.client.guilds.fetch("1041358976513753098");
+    const guild = await this.client.guilds.fetch("977507903307145216");
     this.client.user?.setActivity(
       (await guild.members.fetch()).size + " membres",
       {

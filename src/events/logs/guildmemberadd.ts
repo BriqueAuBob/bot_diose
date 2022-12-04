@@ -27,7 +27,7 @@ export default class extends Event {
     });
 
     try {
-      const guild = await this.client.guilds.fetch("1041358976513753098");
+      const guild = await this.client.guilds.fetch("977507903307145216");
       this.client.user?.setActivity(
         (await guild.members.fetch()).size + " membres",
         {
