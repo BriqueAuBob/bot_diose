@@ -1,6 +1,6 @@
 import { Event } from "sheweny";
 import type { ShewenyClient } from "sheweny";
-import { ActivityType, GuildMember, GuildTextBasedChannel } from "discord.js";
+import { ActivityType, GuildMember, TextChannel } from "discord.js";
 import createLogMessage from "../../functions/createlogmessage";
 
 export default class extends Event {
@@ -19,7 +19,7 @@ export default class extends Event {
 
     const channel = member.guild.channels.cache.get(
       "977511559234486352"
-    ) as GuildTextBasedChannel;
+    ) as TextChannel;
     if (!channel) return;
 
     channel.send({
