@@ -19,7 +19,16 @@ export default function (
 
   const embed = new EmbedBuilder()
     .setTitle(format(eventConfig.title, member, member.id, ...args))
-    .setDescription(format(eventConfig.description, member, member.id, ...args))
+    .setDescription(
+      format(
+        eventConfig.description,
+        member,
+        ("user" in member ? member.user?.username : member.username) +
+          " " +
+          member.id,
+        ...args
+      )
+    )
     .setColor("DarkButNotBlack")
     .setTimestamp();
 

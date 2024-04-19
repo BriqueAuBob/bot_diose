@@ -41,6 +41,7 @@ export default class extends Event {
 
     const level = getLevel(guildMemberDb.xp!);
     if (level > oldLevel) {
+      // @ts-ignore
       await message.channel.send(
         `Bravo ${guildMember}, tu es passé niveau ${level} ! :tada:`
       );

@@ -5,7 +5,7 @@ import {
   ChannelType,
   ComponentType,
   EmbedBuilder,
-  GuildTextBasedChannel,
+  TextChannel,
   ModalSubmitInteraction,
 } from "discord.js";
 
@@ -38,7 +38,7 @@ export default class extends Modal {
       (channel) =>
         channel.name ===
         `ticket-${modal.user.username.toLowerCase().replaceAll(" ", "-")}`
-    ) as GuildTextBasedChannel;
+    ) as TextChannel;
 
     if (hasTicket) {
       hasTicket.send({ embeds: [embed] });
