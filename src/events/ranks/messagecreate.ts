@@ -21,38 +21,43 @@ export default class extends Event {
 
     const { guild, author } = message;
     if (!guild || author.bot) return;
-    if (cooldown.get(author.id) && cooldown.get(author.id)! > Date.now())
-      return;
+    if (cooldown.get(author.id) && cooldown.get(author.id)! > Date.now()) return;
 
     const guildMemberDb = await member.findOne({
       userID: author.id,
     });
 
     if (!guildMemberDb) {
-      return await member.create({
+      await member.create({
         userID: author.id,
         xp: ExperienceEnums.ON_MESSAGE_CREATE,
       });
+      return;
     }
+
     const oldLevel = getLevel(guildMemberDb.xp!);
 
     guildMemberDb.xp! += ExperienceEnums.ON_MESSAGE_CREATE;
-    guildMemberDb.save();
+    await guildMemberDb.save();
 
     const level = getLevel(guildMemberDb.xp!);
     if (level > oldLevel) {
-      // @ts-ignore
-      await message.channel.send(
-        `Bravo ${guildMember}, tu es passé niveau ${level} ! :tada:`
-      );
 
-      const levels = Object.keys(ranks);
-      const lvl = levels.find((lvl) => Number(lvl) === level);
-      const id: string | undefined =
-        /* @ts-ignore */
-        ranks[lvl as keyof ranks];
-      if (id && !guildMember.roles.cache.has(id)) {
-        await guildMember.roles.add(id);
+      const roleId: string | undefined = ranks[level as unknown as keyof typeof ranks];
+      if (roleId && !guildMember.roles.cache.has(roleId)) {
+        await guildMember.roles.add(roleId);
+
+
+        const role = guild.roles.cache.get(roleId);
+        if (role) {
+          await message.channel.send(
+            `Bravo ${guildMember}, tu es passé niveau ${level} et tu obtiens le rôle **${role.name}** ! :tada:`
+          );
+        }
+      } else {
+        await message.channel.send(
+            `Bravo ${guildMember}, tu es passé niveau ${level} ! :tada:`
+          );
       }
     }
 
