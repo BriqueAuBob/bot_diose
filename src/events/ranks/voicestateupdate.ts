@@ -5,13 +5,7 @@ import member from "../../models/member";
 import ExperienceEnums from "../../enums/experience";
 import getLevel from "../../functions/getlevel";
 import { ranks } from "../../config.json";
-const cooldown = new Map<string, number>();
 
-type UserData = {
-    id: string;
-    startTimestamp: number;
-}
-const users = new Map<string, UserData>();
 export default class extends Event {
     constructor(client: ShewenyClient) {
         super(client, "voiceStateUpdate", {
