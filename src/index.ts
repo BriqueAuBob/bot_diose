@@ -4,7 +4,9 @@ import mongoose from "mongoose";
 
 require("dotenv").config();
 
+console.log("Starting bot...");
 mongoose
+  .set("strictQuery", true)
   .connect(process.env.MONGO_URI as string, {
     family: 4,
     maxPoolSize: 10,
