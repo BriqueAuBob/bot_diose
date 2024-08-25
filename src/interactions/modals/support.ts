@@ -59,6 +59,18 @@ export default class extends Modal {
           allow: ["ViewChannel", "SendMessages"],
         },
         {
+          id: "1264233245965418496",
+          allow: ["ViewChannel", "SendMessages"],
+        },
+        {
+          id: "985504171501436978",
+          allow: ["ViewChannel", "SendMessages"],
+        },
+        {
+          id: "1273615964776300578",
+          allow: ["ViewChannel", "SendMessages"],
+        },
+        {
           id: modal.guild!.id,
           deny: ["ViewChannel"],
         },
