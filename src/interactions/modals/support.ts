@@ -77,7 +77,7 @@ export default class extends Modal {
       ],
     });
 
-    channel.send({ content: "<@&979104507814367253>", embeds: [embed] });
+    channel.send({ content: "<@&979104507814367253> @everyone", embeds: [embed] });
 
     modal.reply({
       content: `Votre ticket ${channel} a bien été créé.`,
